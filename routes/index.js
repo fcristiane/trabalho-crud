@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+module.exports = router;
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -33,5 +34,22 @@ router.get('/edit/:id', function(req, res, next) {
     });
 })
 
+router.post('/edit/:id', function(req, res) {
+  var id = req.params.id;
+  var nome = req.body.nome;
+  var idade = parseInt(req.body.idade);
+  global.db.update(id, {nome, idade}, (e, result) => {
+        if(e) { return console.log(e); }
+        res.redirect('/');
+    });
+});
 
-module.exports = router;
+router.get('/delete/:id', function(req, res) {
+  var id = req.params.id;
+  global.db.deleteOne(id, (e, r) => {
+        if(e) { return console.log(e); }
+        res.redirect('/');
+      });
+});
+
+
