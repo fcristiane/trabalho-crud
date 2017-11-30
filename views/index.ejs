@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <ul>
-      <% docs.forEach(function(customer){ %>
-        <li>
-          <a href="/edit/<%= customer._id %>">
-              <%= customer.nome %>
-          </a>
-          <a href="/delete/<%= customer._id %>" 
-            onclick="return confirm('Tem certeza que deseja excluir?');">
-            X
-          </a>
-        </li>
-      <% }) %>
 
-      <hr>
-      <a href="/new">Cadastrar novo usuário</a>
-    </ul>
-  </body>
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style2.css' />
+</head>
+
+<body>
+  <div id="form-main">
+    <div id="form-div">
+      <h1 class="cf">
+        <%= title %>
+      </h1>
+      <form id="form1">
+        <div>
+          <ul>
+            <% docs.forEach(function(customer){ %>
+              <li>
+                <p class="lista cf">
+                  <a class="left textarea" href="/edit/<%= customer._id %>">
+                    <%= customer.nome %>
+                  </a>
+                  <a class="right textarea" href="/delete/<%= customer._id %>" onclick="return confirm('Tem certeza que deseja excluir?');">
+                    Delete
+                  </a>
+                </p>
+              </li>
+              <% }) %>
+
+                <hr>
+                <div class="submit textarea">
+                  <a type="submit" value="Cadastrar novo usuário" id="button-blue" href="/new">Cadastrar novo usuário</a>
+                  <div class="ease"></div>
+                  
+                </div>
+
+                <!-- <a value="Submit" class="ease" id="button-blue" href="/new">Cadastrar novo usuário</a> -->
+
+          </ul>
+        </div>
+      </form>
+</body>
+
 </html>

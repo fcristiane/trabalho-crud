@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheet/style.css" />
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/style2.css" />
 </head>
 
 <body>
-    <h1><%= title %></h1>
-    <form action="<%= action %>" method="POST">
-    <p>Nome: <input type="text" name="nome" value="<%= doc.nome %>"></p>
-    <p>Idade: <input type="number" name="idade" value="<%= doc.idade %>"></p>
-    <input type="submit" value="Salvar">
-</form>
-    
+
+    <div id="form-main">
+
+        <div id="form-div">
+            <h1>
+                <%= title %>
+            </h1>
+
+            <form class="form" id="form1" action="<%= action %>" method="POST">
+                <p class="name">
+                    <input type="text" id="name" name="nome" value="<%= doc.nome %>" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input"
+                        placeholder="Name">
+                </p>
+                <p class="idade">
+                    <input type="number" id="idade" name="idade" value="<%= doc.idade %>" class="validate[required,custom[idade]] feedback-input"
+                        placeholder="Idade">
+                </p>
+                <div class="submit">
+                    <input type="submit" value="Salvar" id="button-blue">
+                    <div class="ease"></div>
+                </div>
+                <a value="Submit" id="input-submit" href="/">voltar</a>
+        </div>
+        </form>
+    </div>
 </body>
+
 </html>
